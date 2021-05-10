@@ -1,0 +1,9 @@
+{
+  "images": [{
+    "src": "https://craftypixels.com/placeholder-image/400x200/99cccc/ffffff&text=Image+1",
+    "alt": "Image one alt text"
+  }, {
+    "src": "https://craftypixels.com/placeholder-image/400x200/99cc9a/ffffff&text=Image+2",
+    "alt": "Image two alt text"
+  }]
+}
