@@ -1,0 +1,5 @@
+You can choose whether to use Dart Sass or Node Sass by setting the sass.compiler property. Node Sass will be used by default, but it's strongly recommended that you set it explicitly for forwards-compatibility in case the default ever changes.
+
+Note that when using Dart Sass, synchronous compilation is twice as fast as asynchronous compilation by default, due to the overhead of asynchronous callbacks. To avoid this overhead, you can use the fibers package to call asynchronous importers from the synchronous code path. To enable this, pass the Fiber class to the fiber option:
+
+Here is NPM's Documentation page for gulp-sass: https://www.npmjs.com/package/gulp-sass

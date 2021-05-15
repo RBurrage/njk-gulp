@@ -1,0 +1,6 @@
+.gallery {
+  display: flex;
+}
+.gallery img {
+  margin: 10px;
+}

@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gulp-nunjucks-render": "^2.2.3"
+    "gulp-nunjucks-render": "^2.2.3",
+    "jquery": "^3.6.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

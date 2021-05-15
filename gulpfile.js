@@ -17,8 +17,15 @@ gulp.task('nunjucks', function() {
   .pipe(gulp.dest('app'))
 });
 
+function errorHandler(err) {
+  // Logs out error in the command line
+  console.log(err.toString());
+  // Ends the current pipe, so Gulp watch doesn't break
+  this.emit('end');
+}
+
 gulp.task('sass', function() {
-  return gulp.src('app/scss/styles.scss')
-  .pipe(sass()) //Compiles Sass to CSS wit gulp-sass
+  return gulp.src('app/scss/**/*.scss')
+  .pipe(sass().on('error', errorHandler)) //Compiles Sass to CSS with gulp-sass
   .pipe(gulp.dest('app/css'))
 })
