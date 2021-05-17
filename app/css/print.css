@@ -1,6 +1,4 @@
 .gallery {
-  display: flex;
-}
-.gallery img {
-  margin: 10px;
-}
+  display: flex; }
+  .gallery img {
+    margin: 10px; }

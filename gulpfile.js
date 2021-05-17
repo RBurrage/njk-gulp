@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const data = require('gulp-data');
 const nunjucksRender = require('gulp-nunjucks-render');
 const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
 
 gulp.task('nunjucks', function() {
   // Gets .html and .nunjucks files in pages
@@ -26,6 +27,28 @@ function errorHandler(err) {
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
-  .pipe(sass().on('error', errorHandler)) //Compiles Sass to CSS with gulp-sass
   .pipe(gulp.dest('app/css'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
 })
+
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: 'app'
+    },
+    options: {
+    browser: "google chrome",
+    proxy: "localhost:3001",
+    notify: false
+    }   
+  })
+})
+
+gulp.task('watch', gulp.series(['browserSync', 'sass']), function (){
+  gulp.watch('app/scss/**/*.scss', gulp.series(['sass'])); 
+  // Reloads the browser whenever HTML or JS files change
+  gulp.watch('app/*.html', browserSync.reload); 
+  gulp.watch('app/js/**/*.js', browserSync.reload); 
+});
